@@ -20,8 +20,8 @@ custom_colors <- c("#FF6B6B", "#4ECDC4", "#45B7D1")
 # 设置最大扇区轻微炸开
 explode_value <- 0.08
 
-# 生成3D饼图
-pdf(file = file.path(output_dir, "河蟹大眼幼体日捕获量饼图.pdf"), width = 8, height = 8)
+# 生成3D饼图（添加中文字体支持）
+pdf(file = file.path(output_dir, "河蟹大眼幼体日捕获量饼图.pdf"), width = 8, height = 8, family = "GB1")
 
 pie3D(counts, 
       labels = specifications,

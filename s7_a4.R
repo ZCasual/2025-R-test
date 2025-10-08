@@ -70,8 +70,8 @@ new_lengths <- c(10, 15, 18)
 predicted_weights <- predict_new_data(shrimp_result$model, new_lengths)
 cat("预测体重（体长10, 15, 18cm）：", round(predicted_weights, 2), "g\n")
 
-# 保存为PDF文件
-pdf(file.path(output_dir, "shrimp_regression.pdf"), width = 8, height = 6)
+# 保存为PDF文件（添加中文字体支持）
+pdf(file.path(output_dir, "shrimp_regression.pdf"), width = 8, height = 6, family = "GB1")
 shrimp_result <- linear_regression_analysis(shrimp_length, shrimp_weight, 
                                            "对虾体长-体重回归分析")
 dev.off()
@@ -93,8 +93,8 @@ e_coli_result <- linear_regression_analysis(growth_phase, growth_data,
 cat("大肠杆菌生长曲线回归模型摘要：\n")
 print(e_coli_result$summary)
 
-# 保存为PDF文件
-pdf(file.path(output_dir, "e_coli_growth_regression.pdf"), width = 8, height = 6)
+# 保存为PDF文件（添加中文字体支持）
+pdf(file.path(output_dir, "e_coli_growth_regression.pdf"), width = 8, height = 6, family = "GB1")
 e_coli_result <- linear_regression_analysis(growth_phase, growth_data, 
                                             "大肠杆菌生长曲线回归分析")
 dev.off()
@@ -113,8 +113,8 @@ lactic_result <- linear_regression_analysis(ph_values, lactic_acid_yield,
 cat("pH-乳酸产量回归模型摘要：\n")
 print(lactic_result$summary)
 
-# 保存为PDF文件
-pdf(file.path(output_dir, "lactic_acid_regression.pdf"), width = 8, height = 6)
+# 保存为PDF文件（添加中文字体支持）
+pdf(file.path(output_dir, "lactic_acid_regression.pdf"), width = 8, height = 6, family = "GB1")
 lactic_result <- linear_regression_analysis(ph_values, lactic_acid_yield, 
                                           "pH-乳酸产量回归分析")
 dev.off()
@@ -128,7 +128,7 @@ fish_catch_data <- c(120, 85, 65, 40)
 fish_catch_labels <- c("春季", "夏季", "秋季", "冬季")
 fish_catch_colors <- c("#A8E6CF", "#DCEDC1", "#FFD3B6", "#FFAAA5")
 
-pdf(file.path(output_dir, "grass_carp_catch_pie3d.pdf"), width = 8, height = 6)
+pdf(file.path(output_dir, "grass_carp_catch_pie3d.pdf"), width = 8, height = 6, family = "GB1")
 pie3D(fish_catch_data, 
       labels = paste(fish_catch_labels, "\n", 
                     round(fish_catch_data/sum(fish_catch_data)*100, 1), "%"),
@@ -158,7 +158,7 @@ lactic_bacteria_data <- list(
   "菌株C" = rnorm(25, 8.8, 0.35)
 )
 
-pdf(file.path(output_dir, "lactic_bacteria_boxplot.pdf"), width = 8, height = 6)
+pdf(file.path(output_dir, "lactic_bacteria_boxplot.pdf"), width = 8, height = 6, family = "GB1")
 boxplot(lactic_bacteria_data,
         col = c("#FFCDD2", "#C8E6C9", "#BBDEFB"),
         main = "乳酸菌活菌数比较",
@@ -199,7 +199,7 @@ colnames(bacillus_od_data) <- c("12h", "24h", "36h", "48h", "60h")
 heat_colors <- colorRampPalette(c("#2B83BA", "#ABDDA4", "#FFFFBF", 
                                   "#FDAE61", "#D7191C"))(100)
 
-pdf(file.path(output_dir, "bacillus_od_heatmap.pdf"), width = 8, height = 6)
+pdf(file.path(output_dir, "bacillus_od_heatmap.pdf"), width = 8, height = 6, family = "GB1")
 image(1:5, 1:4, t(bacillus_od_data[4:1, ]),
       col = heat_colors,
       main = "枯草芽孢杆菌OD值热图",

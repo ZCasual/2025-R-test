@@ -87,8 +87,8 @@ erythromycin_colors <- c("#FFCDD2", "#EF9A9A", "#E57373")
 plot_boxplot(erythromycin_data, erythromycin_colors, 
              "溶氧对红霉素效价的影响", notch = FALSE)
 
-# 保存为PDF文件
-pdf(file.path(output_dir, "erythromycin_oxygen_boxplot.pdf"), width = 8, height = 6)
+# 保存为PDF文件（添加中文字体支持）
+pdf(file.path(output_dir, "erythromycin_oxygen_boxplot.pdf"), width = 8, height = 6, family = "GB1")
 plot_boxplot(erythromycin_data, erythromycin_colors, 
              "溶氧对红霉素效价的影响", notch = FALSE)
 dev.off()

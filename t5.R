@@ -19,8 +19,8 @@ yield <- c(8.2, 8.5, 8.8, 9.1, 9.4, 9.7, 10.0, 10.3, 9.0, 8.9, 8.7, 9.3, 9.6, 9.
 lm_model <- lm(yield ~ spad_values)
 regression_line <- predict(lm_model)
 
-# 生成散点图
-pdf(file = file.path(output_dir, "SPAD与产量关系散点图.pdf"), width = 8, height = 8)
+# 生成散点图（添加中文字体支持）
+pdf(file = file.path(output_dir, "SPAD与产量关系散点图.pdf"), width = 8, height = 8, family = "GB1")
 
 # 设置图形参数
 par(mar = c(5, 5, 4, 2) + 0.1)

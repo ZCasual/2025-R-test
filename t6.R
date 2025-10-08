@@ -20,8 +20,8 @@ glucose_matrix <- matrix(c(5.2, 5.0, 5.4,
 rownames(glucose_matrix) <- blood_sampling_methods
 colnames(glucose_matrix) <- anticoagulants
 
-# 生成热图
-pdf(file = file.path(output_dir, "血糖均值热图.pdf"), width = 8, height = 6)
+# 生成热图（添加中文字体支持）
+pdf(file = file.path(output_dir, "血糖均值热图.pdf"), width = 8, height = 6, family = "GB1")
 
 # 设置图形参数
 par(mar = c(5, 8, 4, 6) + 0.1)

@@ -100,8 +100,8 @@ crop_yield_colors <- c("#A8E6CF", "#DCEDC1", "#FFD3B6", "#FFAAA5", "#FF8B94")
 plot_3d_pie(crop_yield_data, crop_yield_labels, crop_yield_colors, 
             "作物产量构成", explode = 0.1)
 
-# 保存为PDF文件
-pdf(file.path(output_dir, "crop_yield_pie3d.pdf"), width = 8, height = 6)
+# 保存为PDF文件（添加中文字体支持）
+pdf(file.path(output_dir, "crop_yield_pie3d.pdf"), width = 8, height = 6, family = "GB1")
 plot_3d_pie(crop_yield_data, crop_yield_labels, crop_yield_colors, 
             "作物产量构成", explode = 0.1)
 dev.off()
@@ -135,8 +135,8 @@ plot_bar_with_error(shannon_data, shannon_errors,
                     colors = c("#6BAED6", "#4292C6", "#2171B5", "#08519C", "#08306B"),
                     title = "仔猪肠道菌群Shannon指数")
 
-# 保存为PDF文件
-pdf(file.path(output_dir, "pig_shannon_bar_error.pdf"), width = 8, height = 6)
+# 保存为PDF文件（添加中文字体支持）
+pdf(file.path(output_dir, "pig_shannon_bar_error.pdf"), width = 8, height = 6, family = "GB1")
 plot_bar_with_error(shannon_data, shannon_errors, 
                     colors = c("#6BAED6", "#4292C6", "#2171B5", "#08519C", "#08306B"),
                     title = "仔猪肠道菌群Shannon指数")

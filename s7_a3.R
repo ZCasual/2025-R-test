@@ -11,6 +11,15 @@ if (!dir.exists(output_dir)) {
 # 加载必要的包
 library(gplots)  # 用于热图绘制
 
+# 加载showtext包以支持中文显示
+if (!require(showtext)) {
+  install.packages("showtext", repos = "https://cloud.r-project.org/")
+  library(showtext)
+}
+
+# 启用showtext支持
+showtext_auto()
+
 # 函数：绘制散点图
 # 输入：x - x轴数据，y - y轴数据，groups - 分组变量，title - 图表标题
 # 输出：线性回归模型对象
@@ -108,8 +117,8 @@ growth_data <- 100 / (1 + exp(-0.3 * (time_points - 12))) + rnorm(25, 0, 5)
 growth_model <- plot_scatter(time_points, growth_data, 
                             title = "微生物生长曲线")
 
-# 保存为PDF文件
-pdf(file.path(output_dir, "microbial_growth_scatter.pdf"), width = 8, height = 6)
+# 保存为PDF文件（添加中文字体支持）
+pdf(file.path(output_dir, "microbial_growth_scatter.pdf"), width = 8, height = 6, family = "GB1")
 growth_model <- plot_scatter(time_points, growth_data, 
                             title = "微生物生长曲线")
 dev.off()
@@ -166,8 +175,8 @@ growth_colors <- colorRampPalette(c("#4575B4", "#74ADD1", "#ABD9E9",
 plot_heatmap(shrimp_growth_matrix, growth_colors, 
              "对虾日增重热图（g/天）")
 
-# 保存为PDF文件
-pdf(file.path(output_dir, "shrimp_daily_growth_heatmap.pdf"), width = 8, height = 6)
+# 保存为PDF文件（添加中文字体支持）
+pdf(file.path(output_dir, "shrimp_daily_growth_heatmap.pdf"), width = 8, height = 6, family = "GB1")
 plot_heatmap(shrimp_growth_matrix, growth_colors, 
              "对虾日增重热图（g/天）")
 dev.off()
@@ -197,8 +206,8 @@ od_colors <- colorRampPalette(c("#2B83BA", "#ABDDA4", "#FFFFBF",
 plot_heatmap(bacillus_od_matrix, od_colors, 
              "枯草芽孢杆菌OD值热图")
 
-# 保存为PDF文件
-pdf(file.path(output_dir, "bacillus_od_heatmap.pdf"), width = 8, height = 6)
+# 保存为PDF文件（添加中文字体支持）
+pdf(file.path(output_dir, "bacillus_od_heatmap.pdf"), width = 8, height = 6, family = "GB1")
 plot_heatmap(bacillus_od_matrix, od_colors, 
              "枯草芽孢杆菌OD值热图")
 dev.off()
@@ -230,8 +239,8 @@ dissolution_colors <- colorRampPalette(c("#2166AC", "#4393C3", "#92C5DE",
 plot_heatmap(drug_dissolution_matrix, dissolution_colors, 
              "药物溶出度热图（%）")
 
-# 保存为PDF文件
-pdf(file.path(output_dir, "drug_dissolution_heatmap.pdf"), width = 8, height = 6)
+# 保存为PDF文件（添加中文字体支持）
+pdf(file.path(output_dir, "drug_dissolution_heatmap.pdf"), width = 8, height = 6, family = "GB1")
 plot_heatmap(drug_dissolution_matrix, dissolution_colors, 
              "药物溶出度热图（%）")
 dev.off()
